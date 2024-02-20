@@ -13,27 +13,48 @@
     <template id="dishTemplate">
         <div class="dishEntry">
             <div class="dishImage">
-                <img src="https://picsum.photos/300/300?random=1">
+                <img class="mainImg">
             </div>
-            <div class="dishName">
-                <h1>Rollo mixto solo cebolla</h1>
-            </div>
-            <div class="dishIngredients">
-                <p>Ternera, pollo, cebolla, pan de pita, salsa de yogur, salsa picante</p>
-            </div>
+            <div class="dishName"></div>
+            <div class="dishIngredients"></div>
             <div class="dishIntolerances">
-                <img src="static/img/ConAnimal.png" alt="No apto para veganos">
-                <img src="static/img/ConGluten.png" alt="No apto para celíacos">
-                <img src="static/img/ConLactosa.png" alt="No apto para intolerantes a la lactosa">
+                <img class="intolVegan">
+                <img class="intolGluten">
+                <img class="intolLactose">
             </div>
-            <div class="dishPrice">
-                <h2>4,5€</h2>
-                <a href="#"><img src="static/img/FavOff.png" alt="Guardar en favoritos"></a>
-            </div>
+            <div class="dishPrice"></div>
         </div>
     </template>
-    <div class="mainBody">
-        
+    <div id="loadingScreen">
+        <img src="/static/img/LogoRest.png" alt="Logo restaurante">
+    </div>
+    <div id="errorScreen" class="inactive">
+        <h3>Hubo un error durante la carga de la página. Por favor vuelva a intentarlo.</h3>
+    </div>
+    <button id="openSticky" class="active"><img src="/static/img/Filtrar.png" alt="Abrir menú filtros"></button>
+    <div id="stickyMenu" class="inactive">
+        <button id="closeSticky"><img src="/static/img/Cerrar.png" alt="Cerrar menú filtros"></button>
+        <h5>Filtros de intolerancias:</h5>
+        <div id="filterIntolerances">
+            <input type="checkbox" name="filterVegan" id="filterVegan">
+            <label for="filterVegan">Veganos</label>
+            <input type="checkbox" name="filterGluten" id="filterGluten">
+            <label for="filterGluten">Sin gluten</label>
+            <input type="checkbox" name="filterLactose" id="filterLactose">
+            <label for="filterLactose">Sin lactosa</label>
+        </div>
+        <h5>Ordenar:</h5>
+        <div id="orderBy">
+            <input type="radio" name="orderBy" id="orderAsc" value="asc" checked>
+            <label for="orderAsc">Precio ascendente</label>
+            <input type="radio" name="orderBy" id="orderDesc" value="desc">
+            <label for="orderDesc">Precio descendente</label>
+        </div>
+    </div>
+    
+    
+    <div id="mainBody">
+
     </div>
     <script src="static/js/script.js" type="module"></script>
 </body>

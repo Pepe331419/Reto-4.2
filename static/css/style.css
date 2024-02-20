@@ -1,10 +1,15 @@
+body {
+  background-color: #d5ddec;
+}
+
 div.dishEntry {
   display: grid;
-  grid-template-areas: "nameArea imageArea" "ingredArea imageArea" "intolArea priceArea";
+  grid-template-areas: "nameArea nameArea" "ingredArea ingredArea" "imageArea imageArea" "intolArea priceArea";
   grid-template-columns: 2fr 1fr;
-  grid-template-rows: 1fr 1fr 0.5fr;
+  grid-template-rows: 1fr 1fr 2fr 0.5fr;
   height: 20rem;
   width: 95%;
+  max-width: 370px;
   margin: auto;
   border: solid #000000 2px;
   border-radius: 1rem;
@@ -13,14 +18,14 @@ div.dishEntry {
 
 div.dishImage {
   grid-area: imageArea;
-  background-color: cadetblue;
+  background-color: #dfdcd8;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-div.dishImage img {
-  max-width: 300px;
+div.dishImage img.mainImg {
+  height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: center;
@@ -29,18 +34,26 @@ div.dishImage img {
 
 div.dishName {
   grid-area: nameArea;
-  background-color: indigo;
+  background-color: #e4d9c4;
   display: flex;
   align-items: center;
+  position: relative;
 }
 div.dishName h1 {
   font-size: 1.5rem;
   margin: 0.5rem;
 }
 
+a.favIcon img {
+  position: absolute;
+  height: 32px;
+  right: 7px;
+  top: calc(50% - 16px);
+}
+
 div.dishIngredients {
   grid-area: ingredArea;
-  background-color: blue;
+  background-color: #bba885;
   display: flex;
   align-items: center;
 }
@@ -50,7 +63,7 @@ div.dishIngredients p {
 
 div.dishIntolerances {
   grid-area: intolArea;
-  background-color: cyan;
+  background-color: #c5b79d;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -62,15 +75,109 @@ div.dishIntolerances img {
 
 div.dishPrice {
   grid-area: priceArea;
-  background-color: dodgerblue;
+  background-color: #bba885;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
 }
-div.dishPrice a img {
-  position: absolute;
+
+#mainBody {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+#stickyMenu {
+  position: sticky;
+  top: 0;
+  left: 0;
+  background-color: #9DABC5;
+  outline: solid 2px #6b758a;
+  height: 7rem;
+  width: 100vw;
+  z-index: 99;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 1.25rem;
+  margin: 0;
+}
+#stickyMenu h5 {
+  margin: 0.5rem 0 0 0;
+}
+
+.active {
+  display: flex;
+}
+
+.inactive {
+  display: none !important;
+}
+
+#openSticky {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  left: 0;
   height: 32px;
-  right: 5px;
-  bottom: 10px;
+}
+#openSticky img {
+  width: 32px;
+  margin: 0;
+}
+
+#closeSticky {
+  position: absolute;
+  z-index: 100;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  top: 0;
+  left: 0;
+  height: 32px;
+}
+#closeSticky img {
+  width: 32px;
+  margin: 0;
+}
+
+div#loadingScreen {
+  display: flex;
+  background-color: #a58e62;
+  width: 100vw;
+  height: 100vh;
+  z-index: 110;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  transition: opacity 3s ease-in-out;
+}
+div#loadingScreen.hidden {
+  opacity: 0;
+}
+div#loadingScreen img {
+  width: 50%;
+}
+
+div#errorScreen {
+  background-color: #e6e6e6;
+  width: 100vw;
+  height: 100vh;
+  z-index: 111;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  transition: 2s;
+}
+div#errorScreen h3 {
+  color: #FF0000;
+  text-align: center;
 }/*# sourceMappingURL=style.css.map */
